@@ -170,7 +170,7 @@ const Dashboard = () => {
               </FormControl>
             </Box>
           </Box>
-          <Box height="300px" m="-20px 0 0 0">
+          <Box height="300px" m="30px 0 0 0">
             <BarChart isDashboard={true} />
           </Box>
         </Box>
