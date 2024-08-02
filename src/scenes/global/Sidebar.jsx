@@ -9,6 +9,7 @@ import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import LogoutIcon from '@mui/icons-material/Logout';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 
 
@@ -54,6 +55,7 @@ const Sidebar = () => {
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
         },
+        
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
@@ -87,7 +89,7 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
-              to="/"
+              to="/"LogoutIcon
               icon={<HomeOutlinedIcon fontSize="large"/>}
               selected={selected}
               setSelected={setSelected}
@@ -118,6 +120,22 @@ const Sidebar = () => {
               title="Cart"
               to="/form"
               icon={<LocalMallOutlinedIcon fontSize="large"/>}
+              selected={selected}
+              setSelected={setSelected}
+            />
+          </Box>
+          <Box 
+            style={{
+              position: 'absolute', 
+              bottom: 0, 
+              width: '100%', 
+              paddingLeft: isCollapsed ? undefined : "10%",
+            }}
+          >
+            <Item
+              title="Log Out"
+              to="/logout"
+              icon={<LogoutIcon fontSize="large"/>}
               selected={selected}
               setSelected={setSelected}
             />

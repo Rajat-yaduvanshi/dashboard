@@ -1,11 +1,19 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import * as React from "react";
+import {
+  Box,
+  Typography,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+  useTheme,
+} from "@mui/material";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
+import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
+import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
+import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
+import PriceChangeRoundedIcon from "@mui/icons-material/PriceChangeRounded";
 import Header from "../../components/Header";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
@@ -14,6 +22,11 @@ import ProgressCircle from "../../components/ProgressCircle";
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   return (
     <Box m="15px">
@@ -41,9 +54,10 @@ const Dashboard = () => {
             title="75"
             subtitle="Total Orders"
             increase="+14%"
+            color="colors.blueAccent[200]"
             icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "56px" }}
+              <WorkRoundedIcon
+                sx={{ color: colors.blueAccent[700], fontSize: "45px" }}
               />
             }
           />
@@ -57,11 +71,11 @@ const Dashboard = () => {
         >
           <StatBox
             title="70"
-            subtitle="Sales Obtained"
+            subtitle="Total Delivered"
             increase="+21%"
             icon={
-              <PointOfSaleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "56px" }}
+              <ShoppingBagRoundedIcon
+                sx={{ color: colors.greenAccent[700], fontSize: "45px" }}
               />
             }
           />
@@ -78,8 +92,8 @@ const Dashboard = () => {
             subtitle="Total cancelled"
             increase="+5%"
             icon={
-              <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "56px" }}
+              <LocalMallRoundedIcon
+                sx={{ color: colors.redAccent[700], fontSize: "45px" }}
               />
             }
           />
@@ -96,8 +110,8 @@ const Dashboard = () => {
             subtitle="Total Revenue"
             increase="+43%"
             icon={
-              <TrafficIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "56px" }}
+              <PriceChangeRoundedIcon
+                sx={{ color: colors.redAccent[300], fontSize: "45px" }}
               />
             }
           />
@@ -114,11 +128,6 @@ const Dashboard = () => {
             subtitle="Traffic Received"
             progress="0.80"
             increase="+43%"
-            icon={
-              <TrafficIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "56px" }}
-              />
-            }
           />
         </Box>
 
@@ -137,30 +146,32 @@ const Dashboard = () => {
           >
             <Box>
               <Typography
-                variant="h5"
+                variant="h3"
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Revenue Generated
-              </Typography>
-              <Typography
-                variant="h3"
-                fontWeight="bold"
-                color={colors.greenAccent[500]}
-              >
-                $59,342.32
+                Activity
               </Typography>
             </Box>
-            <Box>
-              <IconButton>
-                <DownloadOutlinedIcon
-                  sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                />
-              </IconButton>
+            <Box sx={{ minWidth: 150 }} >
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Status</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={age}
+                  label="Age"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={10}>Weekly</MenuItem>
+                  <MenuItem value={20}>Monthly</MenuItem>
+                  <MenuItem value={30}>Yearly</MenuItem>
+                </Select>
+              </FormControl>
             </Box>
           </Box>
-          <Box height="250px" m="-20px 0 0 0">
-          <BarChart isDashboard={true} />
+          <Box height="300px" m="-20px 0 0 0">
+            <BarChart isDashboard={true} />
           </Box>
         </Box>
         <Box
@@ -216,7 +227,7 @@ const Dashboard = () => {
 
         {/* ROW 3 */}
         <Box
-          gridColumn="span 4"
+          gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"

@@ -15,12 +15,17 @@ const Topbar = () => {
   const colorMode = useContext(ColorModeContext);
 
   return (
-    <Box display="flex" justifyContent="space-between" p={2} backgroundColor={colors.primary[400]}>
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      p={2}
+      backgroundColor={colors.primary[400]}
+    >
       {/* SEARCH BAR */}
       <Box
         display="flex"
         backgroundColor={colors.grey[700]}
-        borderRadius="10px"
+        borderRadius="20px"
       >
         <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />
@@ -32,20 +37,29 @@ const Topbar = () => {
       <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
-            <DarkModeOutlinedIcon fontSize="large"/>
+            <DarkModeOutlinedIcon fontSize="large" />
           ) : (
-            <LightModeOutlinedIcon fontSize="large"/>
+            <LightModeOutlinedIcon fontSize="large" />
           )}
         </IconButton>
         <IconButton>
-          <EmailIcon fontSize="large"/>
+          <EmailIcon fontSize="large" />
         </IconButton>
         <IconButton>
-          <SettingsOutlinedIcon fontSize="large"/>
+          <SettingsOutlinedIcon fontSize="large" />
         </IconButton>
         <IconButton>
-        <NotificationsOutlinedIcon fontSize="large"/>
+          <NotificationsOutlinedIcon fontSize="large" />
         </IconButton>
+        <Box display="flex" justifyContent="center" alignItems="center" ml="25px">
+          <img
+            alt="profile-user"
+            width="50px"
+            height="50px"
+            src={`../../assets/user.png`}
+            style={{ cursor: "pointer", borderRadius: "50%" }}
+          />
+        </Box>
       </Box>
     </Box>
   );
