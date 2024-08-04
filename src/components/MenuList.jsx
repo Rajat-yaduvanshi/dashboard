@@ -1,24 +1,56 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { menudata } from "../data/data.js";
 
-const data = [
-  { icon: <span style={{ backgroundColor: '#b84d4d', color: '#fff', borderRadius: '50%', padding: '10px', marginRight: '10px' }}>🎯</span>, title: 'Goals' },
-  { icon: <span style={{ backgroundColor: '#4086ff', color: '#fff', borderRadius: '50%', padding: '10px', marginRight: '10px' }}>🍔</span>, title: 'Popular Dishes' },
-  { icon: <span style={{ backgroundColor: '#2f9e82', color: '#fff', borderRadius: '50%', padding: '10px', marginRight: '10px' }}>🍽️</span>, title: 'Menus' },
-];
 
 const MenuList = () => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-      {data.map((item, index) => (
-        <Box key={index} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
-          <Typography variant="h1" sx={{ display: 'flex', alignItems: 'center' , p:1.2}}>
-            {item.icon}
-            {item.title}
-          </Typography>
-          <ArrowForwardIosIcon />
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      {menudata.map((item, index) => (
+        <Box
+          key={index}
+          sx={{
+            display: "flex",
+            height: "100%",
+            justifyContent: "space-between",
+            alignItems: "center",
+            p: 1,
+          }}
+        >
+          <Box key={index} sx={{ display: "flex" }}>
+            <Typography
+              variant="h1"
+              sx={{ display: "flex", alignItems: "center", p: 1 }}
+            >
+              {item.icon}
+            </Typography>
+            <Typography
+              variant="h3"
+              sx={{ display: "flex", alignItems: "center", p: 1 }}
+            >
+              {item.title}
+            </Typography>
+          </Box>
+          <Box
+            backgroundColor="#616569"
+            borderRadius="20px"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              padding: "10px",
+            }}
+          >
+            <ArrowForwardIosIcon />
+          </Box>
         </Box>
       ))}
     </Box>

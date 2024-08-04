@@ -19,6 +19,7 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProfitBox from "../../components/ProfitBox";
 import { mockTransactions } from "../../data/mockData";
+import Review from "../../components/Review";
 import "./index.css";
 
 const Dashboard = () => {
@@ -192,94 +193,7 @@ const Dashboard = () => {
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`1px solid ${colors.primary[300]}`}
-            colors={colors.grey[100]}
-            p="15px"
-          >
-            <Typography color={colors.grey[100]} variant="h3" fontWeight="600">
-              Recent Orders
-            </Typography>
-          </Box>
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`1px solid ${colors.primary[300]}`}
-            colors={colors.grey[100]}
-            p="15px 25px"
-          >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Customer
-            </Typography>
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Order No.
-            </Typography>
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Amount
-            </Typography>
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Status
-            </Typography>
-          </Box>
-          {mockTransactions.map((transaction, i) => (
-            <Box
-              key={`${transaction.txId}-${i}`}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              borderBottom={`2px solid ${colors.primary[300]}`}
-              p="15px"
-            >
-              <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                ml="5px"
-              >
-                <img
-                  alt="profile-user"
-                  width="50px"
-                  height="50px"
-                  src={`../../assets/1.png`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-                <Typography color={colors.grey[100]}>
-                  {transaction.user}
-                </Typography>
-              </Box>
-              <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                textAlign="center"
-                // ml="5px"
-                color={colors.grey[100]}
-              >
-                {transaction.txId}
-              </Box>
-              <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                ml="35px"
-                color={colors.grey[100]}
-              >
-                ${transaction.cost}
-              </Box>
-              <Box
-                backgroundColor={colors.greenAccent[700]}
-                color={colors.greenAccent[500]}
-                p="2px 20px"
-                borderRadius="40px"
-              >
-                {transaction.status}
-              </Box>
-            </Box>
-          ))}
+    
         </Box>
         <Box
           gridColumn="span 4"
@@ -289,12 +203,12 @@ const Dashboard = () => {
           <Typography
             variant="h5"
             fontWeight="600"
-            sx={{ padding: "30px 30px 0 30px" }}
+            sx={{ padding: "20px 20px 0 20px" }}
           >
-            Sales Quantity
+            Customer's Feedback
           </Typography>
-          <Box height="250px" mt="-20px">
-            <BarChart isDashboard={true} />
+          <Box p="5px 25px 25px 25px" style={{ overflowY: 'auto', maxHeight: '480px' }}>
+            <Review />
           </Box>
         </Box>
       </Box>

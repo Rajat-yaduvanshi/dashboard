@@ -21,3 +21,54 @@ export const data = [
   { name: "26", uv: 10000 },
   { name: "27", uv: 6000 },
 ];
+
+export const menudata = [
+  {
+    icon: (
+      <span
+        style={{
+          backgroundColor: "#b84d4d",
+          color: "#fff",
+          borderRadius: "50%",
+          padding: "10px",
+          marginRight: "10px",
+        }}
+      >
+        🎯
+      </span>
+    ),
+    title: "Goals",
+  },
+  {
+    icon: (
+      <span
+        style={{
+          backgroundColor: "#4086ff",
+          color: "#fff",
+          borderRadius: "50%",
+          padding: "10px",
+          marginRight: "10px",
+        }}
+      >
+        🍔
+      </span>
+    ),
+    title: "Popular Dishes",
+  },
+  {
+    icon: (
+      <span
+        style={{
+          backgroundColor: "#2f9e82",
+          color: "#fff",
+          borderRadius: "50%",
+          padding: "10px",
+          marginRight: "10px",
+        }}
+      >
+        🍽️
+      </span>
+    ),
+    title: "Menus",
+  },
+];
