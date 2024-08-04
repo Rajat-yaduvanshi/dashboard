@@ -11,6 +11,17 @@ body,
   font-family: 'Source sans 3' , sans-serif;
 }
 
+.content{
+  overflow-y: scroll;
+}
+
+.sticky-topbar{
+  position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
 .app{
   display: flex;
   position: relative;

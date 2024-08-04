@@ -9,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockTransactions } from "../../data/mockData";
+import MenuList from "../../components/MenuList";
 import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
 import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
 import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
@@ -17,7 +17,9 @@ import PriceChangeRoundedIcon from "@mui/icons-material/PriceChangeRounded";
 import Header from "../../components/Header";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
-import ProgressCircle from "../../components/ProgressCircle";
+import ProfitBox from "../../components/ProfitBox";
+import { mockTransactions } from "../../data/mockData";
+import "./index.css";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -36,12 +38,7 @@ const Dashboard = () => {
       </Box>
 
       {/* GRID & CHARTS */}
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="170px"
-        gap="20px"
-      >
+      <Box className="dashboard-layout">
         {/* ROW 1 */}
         <Box
           gridColumn="span 2"
@@ -54,7 +51,7 @@ const Dashboard = () => {
             title="75"
             subtitle="Total Orders"
             increase="+14%"
-            color="colors.blueAccent[200]"
+            bgcolor={colors.blueAccent[300]}
             icon={
               <WorkRoundedIcon
                 sx={{ color: colors.blueAccent[700], fontSize: "45px" }}
@@ -73,6 +70,7 @@ const Dashboard = () => {
             title="70"
             subtitle="Total Delivered"
             increase="+21%"
+            bgcolor={colors.greenAccent[300]}
             icon={
               <ShoppingBagRoundedIcon
                 sx={{ color: colors.greenAccent[700], fontSize: "45px" }}
@@ -91,6 +89,7 @@ const Dashboard = () => {
             title="05"
             subtitle="Total cancelled"
             increase="+5%"
+            bgcolor={colors.redAccent[400]}
             icon={
               <LocalMallRoundedIcon
                 sx={{ color: colors.redAccent[700], fontSize: "45px" }}
@@ -109,9 +108,10 @@ const Dashboard = () => {
             title="$12k"
             subtitle="Total Revenue"
             increase="+43%"
+            bgcolor={colors.redAccent[200]}
             icon={
               <PriceChangeRoundedIcon
-                sx={{ color: colors.redAccent[300], fontSize: "45px" }}
+                sx={{ color: colors.redAccent[400], fontSize: "45px" }}
               />
             }
           />
@@ -123,11 +123,12 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
-            progress="0.80"
-            increase="+43%"
+          <ProfitBox
+            graphAssum={"*The values here has been rounded off."}
+            heading={"Net Profit"}
+            value={"$6759.25"}
+            incDecValue={"3%"}
+            bgcolor={colors.blueAccent[200]}
           />
         </Box>
 
@@ -153,7 +154,7 @@ const Dashboard = () => {
                 Activity
               </Typography>
             </Box>
-            <Box sx={{ minWidth: 150 }} >
+            <Box sx={{ minWidth: 150 }}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Status</InputLabel>
                 <Select
@@ -162,6 +163,7 @@ const Dashboard = () => {
                   value={age}
                   label="Age"
                   onChange={handleChange}
+                  style={{ borderRadius: "40px" }}
                 >
                   <MenuItem value={10}>Weekly</MenuItem>
                   <MenuItem value={20}>Monthly</MenuItem>
@@ -180,16 +182,47 @@ const Dashboard = () => {
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
+          <MenuList />
+        </Box>
+
+        {/* ROW 3 */}
+        <Box
+          gridColumn="span 8"
+          gridRow="span 3"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+        >
           <Box
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`1px solid ${colors.primary[300]}`}
             colors={colors.grey[100]}
             p="15px"
           >
+            <Typography color={colors.grey[100]} variant="h3" fontWeight="600">
+              Recent Orders
+            </Typography>
+          </Box>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            borderBottom={`1px solid ${colors.primary[300]}`}
+            colors={colors.grey[100]}
+            p="15px 25px"
+          >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+              Customer
+            </Typography>
+            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+              Order No.
+            </Typography>
+            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+              Amount
+            </Typography>
+            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+              Status
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
@@ -198,63 +231,59 @@ const Dashboard = () => {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
+              borderBottom={`2px solid ${colors.primary[300]}`}
               p="15px"
             >
-              <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
-                  {transaction.txId}
-                </Typography>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                ml="5px"
+              >
+                <img
+                  alt="profile-user"
+                  width="50px"
+                  height="50px"
+                  src={`../../assets/1.png`}
+                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                />
                 <Typography color={colors.grey[100]}>
                   {transaction.user}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
               <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                textAlign="center"
+                // ml="5px"
+                color={colors.grey[100]}
+              >
+                {transaction.txId}
+              </Box>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                ml="35px"
+                color={colors.grey[100]}
               >
                 ${transaction.cost}
+              </Box>
+              <Box
+                backgroundColor={colors.greenAccent[700]}
+                color={colors.greenAccent[500]}
+                p="2px 20px"
+                borderRadius="40px"
+              >
+                {transaction.status}
               </Box>
             </Box>
           ))}
         </Box>
-
-        {/* ROW 3 */}
-        <Box
-          gridColumn="span 8"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          p="30px"
-        >
-          <Typography variant="h5" fontWeight="600">
-            Campaign
-          </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
-          >
-            <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              $48,352 revenue generated
-            </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
-          </Box>
-        </Box>
         <Box
           gridColumn="span 4"
-          gridRow="span 2"
+          gridRow="span 3"
           backgroundColor={colors.primary[400]}
         >
           <Typography
