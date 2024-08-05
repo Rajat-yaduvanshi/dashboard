@@ -20,6 +20,8 @@ import StatBox from "../../components/StatBox";
 import ProfitBox from "../../components/ProfitBox";
 import Recentorder from "../../components/Recentorder";
 import Review from "../../components/Review";
+import { TiArrowSortedUp , TiArrowSortedDown } from "react-icons/ti";
+
 import "./index.css";
 
 const Dashboard = () => {
@@ -35,7 +37,7 @@ const Dashboard = () => {
     <Box m="15px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" />
+        <Header title="Dashboard" />
       </Box>
 
       {/* GRID & CHARTS */}
@@ -51,8 +53,10 @@ const Dashboard = () => {
           <StatBox
             title="75"
             subtitle="Total Orders"
-            increase="+14%"
+            increase="14%"
             bgcolor={colors.blueAccent[300]}
+            numColor = {colors.greenAccent[500]}
+            arrow = {<TiArrowSortedUp />}
             icon={
               <WorkRoundedIcon
                 sx={{ color: colors.blueAccent[700], fontSize: "40px" , margin: "0px 10px 0px 10px"}}
@@ -70,8 +74,10 @@ const Dashboard = () => {
           <StatBox
             title="70"
             subtitle="Total Delivered"
-            increase="+21%"
+            increase="3%"
             bgcolor={colors.greenAccent[300]}
+            numColor = {colors.redAccent[500]}
+            arrow = {<TiArrowSortedDown />}
             icon={
               <ShoppingBagRoundedIcon
                 sx={{ color: colors.greenAccent[700], fontSize: "40px" ,margin: "0px 10px 0px 10px"}}
@@ -89,8 +95,10 @@ const Dashboard = () => {
           <StatBox
             title="05"
             subtitle="Total cancelled"
-            increase="+5%"
+            increase="3%"
             bgcolor={colors.redAccent[400]}
+            numColor = {colors.greenAccent[500]}
+            arrow = {<TiArrowSortedUp />}
             icon={
               <LocalMallRoundedIcon
                 sx={{ color: colors.redAccent[700], fontSize: "40px" , margin: "0px 10px 0px 10px"}}
@@ -108,8 +116,10 @@ const Dashboard = () => {
           <StatBox
             title="$12k"
             subtitle="Total Revenue"
-            increase="+43%"
+            increase="3%"
             bgcolor={colors.redAccent[200]}
+            numColor = {colors.redAccent[500]}
+            arrow = {<TiArrowSortedDown />}
             icon={
               <PriceChangeRoundedIcon
                 sx={{ color: colors.redAccent[400], fontSize: "40px" , margin: "0px 10px 0px 10px"}}
@@ -130,6 +140,8 @@ const Dashboard = () => {
             value={"$6759.25"}
             incDecValue={"3%"}
             bgcolor={colors.blueAccent[200]}
+            numColor = {colors.greenAccent[500]}
+            arrow = {<TiArrowSortedDown />}
           />
         </Box>
 

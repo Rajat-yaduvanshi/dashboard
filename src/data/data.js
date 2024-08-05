@@ -1,3 +1,8 @@
+import { BiDish } from "react-icons/bi";
+import { TbBurger } from "react-icons/tb";
+import { BiTargetLock } from "react-icons/bi";
+
+
 export const data = [
   { name: "7", uv: 3000 },
   { name: "8", uv: 9800 },
@@ -24,51 +29,21 @@ export const data = [
 
 export const menudata = [
   {
-    icon: (
-      <span
-        style={{
-          backgroundColor: "#b84d4d",
-          color: "#fff",
-          borderRadius: "50%",
-          padding: "10px",
-          marginRight: "10px",
-        }}
-      >
-        🎯
-      </span>
-    ),
+    icon: <BiTargetLock />,
     title: "Goals",
+    background : "#832f2c",
+    color : "#e2726e"
   },
   {
-    icon: (
-      <span
-        style={{
-          backgroundColor: "#4086ff",
-          color: "#fff",
-          borderRadius: "50%",
-          padding: "10px",
-          marginRight: "10px",
-        }}
-      >
-        🍔
-      </span>
-    ),
+    icon: <TbBurger />,
     title: "Popular Dishes",
+    background : "#2a2d64",
+    color :"#868dfb"
   },
   {
-    icon: (
-      <span
-        style={{
-          backgroundColor: "#2f9e82",
-          color: "#fff",
-          borderRadius: "50%",
-          padding: "10px",
-          marginRight: "10px",
-        }}
-      >
-        🍽️
-      </span>
-    ),
+    icon: <BiDish />,
     title: "Menus",
+    background : "#1e5245",
+    color : "#70d8bd"
   },
 ];

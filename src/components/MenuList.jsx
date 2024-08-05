@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { menudata } from "../data/data.js";
 
-
 const MenuList = () => {
   return (
     <Box
@@ -27,12 +26,20 @@ const MenuList = () => {
           }}
         >
           <Box key={index} sx={{ display: "flex" }}>
-            <Typography
-              variant="h1"
-              sx={{ display: "flex", alignItems: "center", p: 1 }}
+            <Box
+              backgroundColor={item.background}
+              color={item.color}
+              borderRadius="100px"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                padding: "20px",
+                fontSize: "40px" ,
+
+              }}
             >
               {item.icon}
-            </Typography>
+            </Box>
             <Typography
               variant="h3"
               sx={{ display: "flex", alignItems: "center", p: 1 }}

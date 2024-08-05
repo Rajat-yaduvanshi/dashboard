@@ -4,7 +4,6 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { Box, useTheme } from "@mui/material";
@@ -22,12 +21,11 @@ const rows = [
   createData("Guy hawkins", 78958215, "$45.88", "Cancelled"),
   createData("kristin Watson", 20965732, "$65.00", "Pending"),
   createData("Cody Fisher", 95715620, "$545.00", "Delivered"),
-  createData("Savannah Nguyen", 78514568, "$128.20", "Delivered"),
 ];
 
 export default function Recentorder() {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(6);
+  const [rowsPerPage, setRowsPerPage] = React.useState(7);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 

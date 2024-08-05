@@ -26,7 +26,12 @@ const Topbar = (props) => {
       <Box
         display="flex"
         backgroundColor={colors.grey[700]}
-        borderRadius="20px"
+        borderRadius="8px"
+        width="400px"
+        height="40px"
+        justifyContent="center"
+        alignItems="center"
+        padding="5px"
       >
         <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />
@@ -52,7 +57,12 @@ const Topbar = (props) => {
         <IconButton>
           <NotificationsOutlinedIcon fontSize="large" />
         </IconButton>
-        <Box display="flex" justifyContent="center" alignItems="center" ml="25px">
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          ml="25px"
+        >
           <img
             alt="profile-user"
             width="50px"

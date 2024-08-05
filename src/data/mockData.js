@@ -4,7 +4,7 @@ export const reviewData = [
   {
     id: 1,
     name: "Jon Snow",
-    rating: "5",
+    rating: "4",
     text: "I'm obsessed with the new burger at [Restaurant Name]! The patty was cooked to perfection and the toppings were so fresh. Highly recommend!",
     img: img1,
   },
@@ -18,7 +18,7 @@ export const reviewData = [
   {
     id: 3,
     name: "Jaime Lannister",
-    rating: "5",
+    rating: "3",
     text: "I've never had better sushi in my life! [Restaurant Name] truly knows what they're doing. The fish was so fresh and the presentation was stunning.",
     img: img1,
   },
