@@ -18,7 +18,6 @@ import Header from "../../components/Header";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProfitBox from "../../components/ProfitBox";
-import { mockTransactions } from "../../data/mockData";
 import Review from "../../components/Review";
 import "./index.css";
 
