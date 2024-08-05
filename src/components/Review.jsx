@@ -22,7 +22,7 @@ const Review = () => {
                 width="50px"
                 height="50px"
                 src={item.img}
-                style={{ cursor: "pointer", borderRadius: "50%" }}
+                style={{ cursor: "pointer", borderRadius: "50%",marginRight: 10 }}
               />
               <Typography color={colors.grey[100]}>
                 <h2>{item.name} </h2>
@@ -39,7 +39,7 @@ const Review = () => {
                 }
               />
             </Box>
-            <Typography color={colors.grey[100]} p="1px">{item.text}</Typography>
+            <Typography color={colors.grey[100]} margin= "0px 0px 15px 2px">{item.text}</Typography>
           </Box>
         );
       })}

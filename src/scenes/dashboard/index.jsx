@@ -18,6 +18,7 @@ import Header from "../../components/Header";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProfitBox from "../../components/ProfitBox";
+import Recentorder from "../../components/Recentorder";
 import Review from "../../components/Review";
 import "./index.css";
 
@@ -54,7 +55,7 @@ const Dashboard = () => {
             bgcolor={colors.blueAccent[300]}
             icon={
               <WorkRoundedIcon
-                sx={{ color: colors.blueAccent[700], fontSize: "45px" }}
+                sx={{ color: colors.blueAccent[700], fontSize: "40px" , margin: "0px 10px 0px 10px"}}
               />
             }
           />
@@ -73,7 +74,7 @@ const Dashboard = () => {
             bgcolor={colors.greenAccent[300]}
             icon={
               <ShoppingBagRoundedIcon
-                sx={{ color: colors.greenAccent[700], fontSize: "45px" }}
+                sx={{ color: colors.greenAccent[700], fontSize: "40px" ,margin: "0px 10px 0px 10px"}}
               />
             }
           />
@@ -92,7 +93,7 @@ const Dashboard = () => {
             bgcolor={colors.redAccent[400]}
             icon={
               <LocalMallRoundedIcon
-                sx={{ color: colors.redAccent[700], fontSize: "45px" }}
+                sx={{ color: colors.redAccent[700], fontSize: "40px" , margin: "0px 10px 0px 10px"}}
               />
             }
           />
@@ -111,7 +112,7 @@ const Dashboard = () => {
             bgcolor={colors.redAccent[200]}
             icon={
               <PriceChangeRoundedIcon
-                sx={{ color: colors.redAccent[400], fontSize: "45px" }}
+                sx={{ color: colors.redAccent[400], fontSize: "40px" , margin: "0px 10px 0px 10px"}}
               />
             }
           />
@@ -192,7 +193,15 @@ const Dashboard = () => {
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
-    
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ padding: "20px 20px 0 20px" }}
+          >
+            Recent Orders
+          </Typography>
+
+          <Recentorder />
         </Box>
         <Box
           gridColumn="span 4"
@@ -206,7 +215,10 @@ const Dashboard = () => {
           >
             Customer's Feedback
           </Typography>
-          <Box p="5px 25px 25px 25px" style={{ overflowY: 'auto', maxHeight: '480px' }}>
+          <Box
+            p="5px 25px 25px 25px"
+            style={{ overflowY: "auto", maxHeight: "480px" }}
+          >
             <Review />
           </Box>
         </Box>

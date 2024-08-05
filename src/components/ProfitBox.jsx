@@ -23,7 +23,7 @@ const ProfitBox=(props)=>{
     return <div className="profit-box">
         <div className="box-left">
             <div className="box-heading">{props.heading}</div>
-            <div className="box-value">{props.value}</div>
+            <div className="box-value" >{props.value}</div>
             <div className="box-notation">
                 <img src={props?.img || "+"} alt="+" />
                 <div>{props.incDecValue}</div>
@@ -37,7 +37,8 @@ const ProfitBox=(props)=>{
                 styles={buildStyles({
                   textColor: "white",
                   pathColor: "rgb(104, 112, 250)",
-                  trailColor: "gold"
+                  trailColor: "#151E3D"
+                  
                 })}
               />
             </Example>

@@ -66,35 +66,21 @@ export const reviewData = [
   },
 ];
 
-export const mockTransactions = [
+// RECENT ORDER DATA //
+
+export const columns = [
+  { id: "name", label: "Customer" },
+  { id: "order", label: "Order No." },
   {
-    txId: "01e4dsa",
-    user: "johndoe",
-    status: "Delivered",
-    cost: "43.95",
+    id: "amount",
+    label: "Amount",
+    align: "right",
   },
   {
-    txId: "0315dsaa",
-    user: "jackdower",
-    status: "Delivered",
-    cost: "133.45",
-  },
-  {
-    txId: "01e4dsa",
-    user: "aberdohnny",
-    status: "Delivered",
-    cost: "43.95",
-  },
-  {
-    txId: "51034szv",
-    user: "goodmanave",
-    status: "Delivered",
-    cost: "200.95",
-  },
-  {
-    txId: "0a123sb",
-    user: "stevebower",
-    status: "Delivered",
-    cost: "13.55",
+    id: "status",
+    label: "Status",
+    align: "right",
   },
 ];
+
+export const images = [{ img: img1 }, { img: img1 }];
